@@ -1,0 +1,221 @@
+{
+  "users": [
+    {
+      "id": "usr-admin",
+      "fullName": "Luis Orlando Villanueva Rosales",
+      "username": "lvillanueva",
+      "role": "Administrador",
+      "status": "Activo",
+      "lastAccess": "2026-05-24T12:20:00.000Z",
+      "password": "admin123"
+    },
+    {
+      "id": "usr-1",
+      "fullName": "María Torres López",
+      "username": "mtorres",
+      "role": "Empleado",
+      "status": "Activo",
+      "lastAccess": "2026-05-23T18:15:00.000Z",
+      "password": "empleado123"
+    },
+    {
+      "id": "usr-2",
+      "fullName": "Carlos Mendoza Ruiz",
+      "username": "cmendoza",
+      "role": "Empleado",
+      "status": "Inactivo",
+      "lastAccess": "2026-05-01T09:50:00.000Z",
+      "password": "empleado123"
+    }
+  ],
+  "clients": [
+    {
+      "id": "cli-1",
+      "type": "Empresa",
+      "name": "Constructora Los Andes S.A.C.",
+      "ruc": "20567891234",
+      "address": "Av. Industrial 450",
+      "district": "Ate",
+      "phone": "01-3456789",
+      "email": "contacto@losandes.com",
+      "status": "Activo",
+      "activeWorks": 2,
+      "contactPerson": "Roberto Sánchez"
+    },
+    {
+      "id": "cli-2",
+      "type": "Empresa",
+      "name": "Inmobiliaria del Sur E.I.R.L.",
+      "ruc": "20123456789",
+      "address": "Av. Primavera 120",
+      "district": "San Isidro",
+      "phone": "01-5678901",
+      "email": "proyectos@delsur.pe",
+      "status": "Activo",
+      "activeWorks": 1,
+      "contactPerson": "Patricia Núñez"
+    },
+    {
+      "id": "cli-3",
+      "type": "Persona Natural",
+      "name": "García Medina, Jorge Luis",
+      "ruc": "10456789123",
+      "address": "Calle Los Girasoles 220",
+      "district": "Surco",
+      "phone": "987654321",
+      "email": "jorge.garcia@mail.com",
+      "status": "Activo",
+      "activeWorks": 1
+    }
+  ],
+  "works": [
+    {
+      "id": "wrk-1",
+      "name": "Nave Industrial - Proyecto Norte",
+      "clientId": "cli-1",
+      "clientName": "Constructora Los Andes S.A.C.",
+      "type": "Industrial",
+      "status": "En Progreso",
+      "progress": 35,
+      "totalValue": 185000,
+      "startDate": "2025-10-15",
+      "dueDate": "2025-11-28",
+      "delayDays": 5,
+      "description": "Estructura principal metálica",
+      "location": "Av. Mz Norte 123",
+      "budget": []
+    },
+    {
+      "id": "wrk-2",
+      "name": "Techo Parabólico - Almacén Central",
+      "clientId": "cli-2",
+      "clientName": "Inmobiliaria del Sur E.I.R.L.",
+      "type": "Comercial",
+      "status": "En Progreso",
+      "progress": 75,
+      "totalValue": 95000,
+      "startDate": "2025-09-20",
+      "dueDate": "2025-10-19",
+      "delayDays": 8,
+      "description": "Cobertura de almacén logístico",
+      "location": "Panamericana Sur Km 18",
+      "budget": []
+    },
+    {
+      "id": "wrk-3",
+      "name": "Escalera Metálica Residencial",
+      "clientId": "cli-3",
+      "clientName": "García Medina, Jorge Luis",
+      "type": "Residencial",
+      "status": "Finalizado",
+      "progress": 100,
+      "totalValue": 12000,
+      "startDate": "2025-08-10",
+      "dueDate": "2025-08-23",
+      "delayDays": 0,
+      "description": "Escalera de dos tramos con baranda",
+      "location": "Urb. Las Palmas 128",
+      "budget": []
+    },
+    {
+      "id": "wrk-4",
+      "name": "Estructura Metálica - Centro Comercial",
+      "clientId": "cli-1",
+      "clientName": "Constructora Los Andes S.A.C.",
+      "type": "Comercial",
+      "status": "Presupuestando",
+      "progress": 0,
+      "totalValue": 0,
+      "startDate": "2025-11-05",
+      "dueDate": "2025-12-15",
+      "delayDays": 0,
+      "description": "Proyecto en fase de diseño",
+      "location": "Av. Comercio 774",
+      "budget": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-1",
+      "code": "PER-001",
+      "name": "Perfil C 6\"x2\" x 3mm",
+      "description": "Perfil estructural tipo C de 6 pulgadas",
+      "category": "Perfiles",
+      "unit": "Metro",
+      "averageCost": 28.5,
+      "stock": 42,
+      "stockMin": 20,
+      "stockMax": 100,
+      "location": "Zona A - Estante 1"
+    },
+    {
+      "id": "mat-2",
+      "code": "PLA-001",
+      "name": "Plancha LAC 1/8\" x 4x8",
+      "description": "Plancha de acero laminado en caliente",
+      "category": "Planchas",
+      "unit": "Unidad",
+      "averageCost": 285,
+      "stock": 12,
+      "stockMin": 20,
+      "stockMax": 80,
+      "location": "Zona B - Estante 2"
+    },
+    {
+      "id": "mat-3",
+      "code": "SOL-001",
+      "name": "Electrodo E6011 1/8\"",
+      "description": "Electrodo para soldadura estructural",
+      "category": "Soldadura",
+      "unit": "Caja",
+      "averageCost": 18.5,
+      "stock": 8,
+      "stockMin": 15,
+      "stockMax": 60,
+      "location": "Zona C - Estante 4"
+    },
+    {
+      "id": "mat-4",
+      "code": "TUB-001",
+      "name": "Tubo cuadrado 2\" x 2\" x 2mm",
+      "description": "Tubo estructural cuadrado",
+      "category": "Tubos",
+      "unit": "Metro",
+      "averageCost": 15.8,
+      "stock": 28,
+      "stockMin": 10,
+      "stockMax": 70,
+      "location": "Zona A - Estante 5"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay-1",
+      "workId": "wrk-1",
+      "clientId": "cli-1",
+      "amount": 92500,
+      "date": "2025-11-12",
+      "dueDate": "2025-11-15",
+      "status": "Pagado"
+    },
+    {
+      "id": "pay-2",
+      "workId": "wrk-2",
+      "clientId": "cli-2",
+      "amount": 47000,
+      "date": "2025-11-10",
+      "dueDate": "2025-11-17",
+      "status": "Pagado"
+    },
+    {
+      "id": "pay-3",
+      "workId": "wrk-4",
+      "clientId": "cli-1",
+      "amount": 12000,
+      "date": "2025-11-01",
+      "dueDate": "2025-11-08",
+      "status": "Vencido"
+    }
+  ]
+}
+

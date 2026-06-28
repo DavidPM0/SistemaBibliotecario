@@ -1,0 +1,204 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 1868 >>
+stream
+BT
+/F1 11 Tf
+50 770 Td
+(ESTRUCTURA DE BASE DE DATOS) Tj
+0 -14 Td
+(Proyecto: Taller Villanueva - Sistema de GestiÛn) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(1\) Tabla: users) Tj
+0 -14 Td
+(- id \(string, PK\)) Tj
+0 -14 Td
+(- fullName \(string\)) Tj
+0 -14 Td
+(- username \(string\)) Tj
+0 -14 Td
+(- role \(enum: Administrador | Empleado\)) Tj
+0 -14 Td
+(- status \(enum: Activo | Inactivo\)) Tj
+0 -14 Td
+(- lastAccess \(string/ISO date\)) Tj
+0 -14 Td
+(- password \(string\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2\) Tabla: clients) Tj
+0 -14 Td
+(- id \(string, PK\)) Tj
+0 -14 Td
+(- type \(enum: Persona Natural | Empresa\)) Tj
+0 -14 Td
+(- name \(string\)) Tj
+0 -14 Td
+(- ruc \(string\)) Tj
+0 -14 Td
+(- address \(string\)) Tj
+0 -14 Td
+(- district \(string\)) Tj
+0 -14 Td
+(- phone \(string\)) Tj
+0 -14 Td
+(- email \(string\)) Tj
+0 -14 Td
+(- status \(enum: Activo | Inactivo\)) Tj
+0 -14 Td
+(- activeWorks \(number\)) Tj
+0 -14 Td
+(- contactPerson \(string, nullable\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3\) Tabla: works) Tj
+0 -14 Td
+(- id \(string, PK\)) Tj
+0 -14 Td
+(- name \(string\)) Tj
+0 -14 Td
+(- clientId \(string, FK -> clients.id\)) Tj
+0 -14 Td
+(- clientName \(string\)) Tj
+0 -14 Td
+(- type \(string\)) Tj
+0 -14 Td
+(- status \(enum: Presupuestando | En Progreso | Finalizado\)) Tj
+0 -14 Td
+(- progress \(number\)) Tj
+0 -14 Td
+(- totalValue \(number\)) Tj
+0 -14 Td
+(- startDate \(string/date\)) Tj
+0 -14 Td
+(- dueDate \(string/date\)) Tj
+0 -14 Td
+(- delayDays \(number\)) Tj
+0 -14 Td
+(- description \(string\)) Tj
+0 -14 Td
+(- location \(string\)) Tj
+0 -14 Td
+(- budget \(BudgetItem[]\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4\) Subestructura: budget item \(dentro de works\)) Tj
+0 -14 Td
+(- id \(string, PK logica\)) Tj
+0 -14 Td
+(- materialId \(string, FK -> materials.id\)) Tj
+0 -14 Td
+(- materialName \(string\)) Tj
+0 -14 Td
+(- quantity \(number\)) Tj
+0 -14 Td
+(- unitCost \(number\)) Tj
+0 -14 Td
+() Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 1169 >>
+stream
+BT
+/F1 11 Tf
+50 770 Td
+(5\) Tabla: materials) Tj
+0 -14 Td
+(- id \(string, PK\)) Tj
+0 -14 Td
+(- code \(string\)) Tj
+0 -14 Td
+(- name \(string\)) Tj
+0 -14 Td
+(- description \(string\)) Tj
+0 -14 Td
+(- category \(string\)) Tj
+0 -14 Td
+(- unit \(string\)) Tj
+0 -14 Td
+(- averageCost \(number\)) Tj
+0 -14 Td
+(- stock \(number\)) Tj
+0 -14 Td
+(- stockMin \(number\)) Tj
+0 -14 Td
+(- stockMax \(number\)) Tj
+0 -14 Td
+(- location \(string\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(6\) Tabla: payments) Tj
+0 -14 Td
+(- id \(string, PK\)) Tj
+0 -14 Td
+(- workId \(string, FK -> works.id\)) Tj
+0 -14 Td
+(- clientId \(string, FK -> clients.id\)) Tj
+0 -14 Td
+(- amount \(number\)) Tj
+0 -14 Td
+(- date \(string/date\)) Tj
+0 -14 Td
+(- dueDate \(string/date\)) Tj
+0 -14 Td
+(- status \(enum: Pagado | Pendiente | Vencido\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(RELACIONES PRINCIPALES) Tj
+0 -14 Td
+(- clients \(1\) ---- \(N\) works) Tj
+0 -14 Td
+(- works \(1\) ---- \(N\) payments) Tj
+0 -14 Td
+(- clients \(1\) ---- \(N\) payments) Tj
+0 -14 Td
+(- works \(1\) ---- \(N\) budget items) Tj
+0 -14 Td
+(- materials \(1\) ---- \(N\) budget items) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Fuente: lib/types.ts y data/store.json) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000002005 00000 n 
+0000002131 00000 n 
+0000003352 00000 n 
+0000003478 00000 n 
+0000003541 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+3590
+%%EOF
