@@ -29,13 +29,15 @@ cd SistemaBibliotecario
 
 ## Instalar dependencias
 
-Ejecuta:
+Ejecuta este comando para instalar exactamente las versiones probadas del proyecto:
 
 ```bash
-npm install
+npm ci
 ```
 
-Este comando instala Next.js, React, TypeScript, Zod y las demas dependencias del proyecto.
+Este comando usa `package-lock.json`, por eso evita cambios automaticos de versiones entre computadoras.
+
+Importante: no ejecutes `npm audit fix --force`. Ese comando puede cambiar Next.js a una version incompatible con React y romper la instalacion local.
 
 ## Ejecutar en modo desarrollo
 
@@ -65,6 +67,12 @@ Tambien existe un usuario inactivo de prueba (`cmendoza`), pero no permite inici
 ## Comandos disponibles
 
 ```bash
+npm ci
+```
+
+Instala las dependencias exactas del proyecto desde `package-lock.json`.
+
+```bash
 npm run dev
 ```
 
@@ -81,12 +89,6 @@ npm run start
 ```
 
 Ejecuta la version compilada. Antes debes correr `npm run build`.
-
-```bash
-npm run lint
-```
-
-Ejecuta el comando de lint configurado en el proyecto.
 
 ## Estructura principal
 
@@ -139,10 +141,32 @@ Verifica que estes usando Node.js 20.9 o superior:
 node -v
 ```
 
-Si el problema continua, elimina `node_modules` y vuelve a instalar:
+Si el problema continua, elimina la instalacion local y vuelve a instalar desde el lockfile.
+
+En PowerShell:
 
 ```bash
-npm install
+Remove-Item -Recurse -Force node_modules
+npm ci
+```
+
+Si tambien se modifico `package-lock.json` despues de ejecutar `npm audit fix --force`, restaura los archivos del proyecto y reinstala:
+
+```bash
+git restore package.json package-lock.json
+Remove-Item -Recurse -Force node_modules
+npm ci
+```
+
+### npm muestra vulnerabilidades o recomienda audit fix
+
+El proyecto ya incluye un `overrides` para usar una version corregida de `postcss`.
+
+Si npm recomienda ejecutar `npm audit fix --force`, no lo ejecutes. Primero actualiza el repositorio:
+
+```bash
+git pull
+npm ci
 ```
 
 ### No puedo iniciar sesion
@@ -156,7 +180,7 @@ git restore data/store.json
 ## Flujo recomendado para probar
 
 1. Clona el repositorio.
-2. Instala dependencias con `npm install`.
+2. Instala dependencias con `npm ci`.
 3. Ejecuta `npm run dev`.
 4. Abre `http://localhost:3000`.
 5. Inicia sesion con `lvillanueva` y `admin123`.
